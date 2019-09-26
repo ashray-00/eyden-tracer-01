@@ -16,7 +16,7 @@ Mat RenderFrame(ICamera& camera)
 	CPrimTriangle t1(RGB(0, 1, 1), Vec3f(-2, 3.7f, 0), Vec3f(1, 2, 1), Vec3f(3, 2.8f, -2));
 	CPrimTriangle t2(RGB(1, 1, 1), Vec3f(3, 2, 3), Vec3f(3, 2, -3), Vec3f(-3, 2, -3));
 	
-	std::vector<CPrim*> objetcs = {&s1, &s2, &s3, &p1, &t1, &t2};
+	std::vector<CPrim*> objetcs = {&s1, &s2, &s3, &t1, &t2, &p1};
 
 	Mat img(camera.getResolution(), CV_32FC3); 	// image array
 	Ray ray;                            		// primary ray

@@ -25,9 +25,9 @@ public:
 		, m_up(up)
 	{
 		// --- PUT YOUR CODE HERE ---
-		m_focus = 1 / tan(angle / 2 * Pif / 180);
-		m_yAxis = m_up;
-		m_xAxis = m_dir.cross(m_up);
+		m_focus = 1 / tan((Pif * angle) / 360);
+		m_yAxis = normalize(-1*m_up);
+		m_xAxis = normalize(m_dir.cross(m_up));
 
 		m_aspect = (float) resolution.width / resolution.height;
 
@@ -37,8 +37,8 @@ public:
 	virtual bool InitRay(float x, float y, Ray& ray) override
 	{
 		// --- PUT YOUR CODE HERE ---
-		float ndcx = (x + 0.5) / getResolution().width;
-		float ndcy = (y + 0.5) / getResolution().height;
+		float ndcx = (float) (x + 0.5) / getResolution().width;
+		float ndcy = (float) (y + 0.5) / getResolution().height;
 
 		float sscx = (2 * ndcx - 1) * m_aspect;
 		float sscy = 2 * ndcy - 1;

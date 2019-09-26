@@ -27,7 +27,7 @@ public:
 	virtual bool Intersect(Ray& ray) override
 	{
 		// --- PUT YOUR CODE HERE ---
-		float numerator = m_normal.dot(ray.org - m_origin);
+		float numerator = m_normal.dot(m_origin - ray.org);
 		float denominator = m_normal.dot(ray.dir);
 		float t;
 
